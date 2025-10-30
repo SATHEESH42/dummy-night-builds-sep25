@@ -1,0 +1,21 @@
+name: Production build
+
+on:
+    workflow_dispatch:
+      
+
+jobs:
+    ci:
+        runs-on: ubuntu-latest
+        steps:
+          - run: echo clone code from develop branch
+          - run: echo build code and unit test
+          - run: echo check for code quality and code coverage
+          - run: echo check security issues by code scan
+    prod:
+        needs:
+            - ci
+        runs-on: ubuntu-latest
+        steps:
+          - run: echo deploy to prod environment
+          - run: echo run basic tests

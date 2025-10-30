@@ -1,0 +1,18 @@
+
+name: Daily build workflow
+
+on:
+    schedule:
+      - cron: '30 * * * *'
+        
+
+jobs:
+    ci:
+        runs-on: ubuntu-latest
+        steps:
+          - run: echo clone code from develop branch
+          - run: echo build code and unit test
+          - run: echo check for code quality and code coverage
+          - run: echo check security issues by code scan
+          - run: deploy to dev environment
+          - run: trigger tests
